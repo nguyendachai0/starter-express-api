@@ -1,0 +1,101 @@
+<!-- ...:::: Start Cart Section:::... -->
+<div class="cart-section">
+    <!-- Start Cart Table -->
+    <div class="cart-table-wrapper" data-aos="fade-up" data-aos-delay="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table_desc">
+                        <div class="table_page table-responsive">
+                            <table>
+                                <!-- Start Cart Table Head -->
+                                <thead>
+                                    <tr>
+                                        <th class="product_remove">Delete</th>
+                                        <th class="product_thumb">Image</th>
+                                        <th class="product_name">Product</th>
+                                        <th class="product-price">Price</th>
+                                        <th class="product-color">Color</th>
+                                        <th class="product-size">Size</th>
+                                        <th class="product_quantity">Quantity</th>
+                                        <th class="product_total">Sub total</th>
+                                    </tr>
+                                </thead> <!-- End Cart Table Head -->
+                                <tbody>
+                                    <!-- Start Cart Single Item-->
+                                    <% cart.forEach( (item)=> { %>
+                                        <tr>
+                                            <td class="product_remove">
+                                                <form method="post" action="<%= locals.base_url %>delete-from-cart">
+                                                    <input type="hidden" name="itemId" value="<%= item.itemId %>">
+                                                    <button>
+                                                        <i class="fa fa-trash-o"></i></button>
+                                                </form>
+                                            </td>
+                                            <td class="product_thumb"><a href=""><img
+                                                        src="<%= locals.base_url %>uploads/product/<%= item.image %>"
+                                                        alt="
+                                                        alt=""></a>
+                                            </td>
+                                            <td class=" product_name"><a href="">
+                                                        <%= item.title %>
+                                                    </a></td>
+                                            <td class="product-price">$<%= item.unit_price %>
+                                            </td>
+                                            <td>
+                                                <div class="product-variable-color">
+                                                    <% item.color.forEach((color)=> { %>
+                                                        <label>
+                                                            <span class="product-color-<%= color %>"></span>
+                                                        </label>
+                                                        <% }); %>
+                                                </div>
+                                            <td>
+                                                <% item.size.forEach((size)=> { %><%= size %>
+                                                        <% }); %>
+                                            </td>
+                                            <td class="product_quantity"><label>Quantity</label> <input min="1"
+                                                    max="100" value="<%= item.quantity %>" name="quantity"
+                                                    type="number">
+                                            </td>
+                                            <td class="product_total">$<%= item.price %>
+                                            </td>
+                                        </tr> <!-- End Cart Single Item-->
+                                        <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Cart Table -->
+
+    <!-- Start Coupon Start -->
+    <div class="coupon_area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12">
+                    <div class="coupon_code right" data-aos="fade-up" data-aos-delay="400">
+                        <h3>Cart Totals</h3>
+                        <div class="coupon_inner">
+
+                            <div class="cart_subtotal">
+                                <p>Total</p>
+                                <p class="cart_amount">$<%= total %>
+                                </p>
+                            </div>
+                            <div class="checkout_btn">
+                                <a href="/checkout" class="btn btn-md btn-golden">Proceed to Checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Coupon Start -->
+</div> <!-- ...:::: End Cart Section:::... -->
+<script>
+
+</script>

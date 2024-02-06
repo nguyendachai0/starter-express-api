@@ -1,0 +1,54 @@
+<!-- ...:::: Start Wishlist Section:::... -->
+<div class="wishlist-section">
+    <!-- Start Cart Table -->
+    <div class="wishlish-table-wrapper" data-aos="fade-up" data-aos-delay="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table_desc">
+                        <div class="table_page table-responsive">
+                            <table>
+                                <!-- Start Wishlist Table Head -->
+                                <thead>
+                                    <tr>
+                                        <th class="product_remove">Delete</th>
+                                        <th class="product_thumb">Image</th>
+                                        <th class="product_name">Product</th>
+                                        <th class="product-price">Price</th>
+                                    </tr>
+                                </thead> <!-- End Cart Table Head -->
+                                <tbody>
+
+                                    <!-- Start Wishlist Single Item-->
+                                    <% locals.wishList.forEach((item)=> { %>
+                                        <tr>
+                                            <td class="product_remove">
+                                                <form method="post" action="<%= locals.base_url %>delete-from-wishlist">
+                                                    <input type="hidden" name="itemId" value="<%= item.itemId %>">
+                                                    <button class="bg-transparent"><i
+                                                            class="fa fa-trash-o text-dark"></i></button>
+                                                </form>
+                                            </td>
+                                            <td class="product_thumb"><a
+                                                    href="<%= locals.base_url%>product/<%= item.itemId %>"><img
+                                                        src="<%= locals.base_url %>uploads/product/<%= item.image %>"
+                                                        alt=""></a>
+                                            </td>
+                                            <td class="product_name"><a
+                                                    href="<%= locals.base_url%>product/<%= item.itemId %>">
+                                                    <%= item.title %>
+                                                </a></td>
+                                            <td class="product-price">$<%= item.unit_price %>
+                                            </td>
+
+                                        </tr> <!-- End Wishlist Single Item-->
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Cart Table -->
+</div> <!-- ...:::: End Wishlist Section:::... -->

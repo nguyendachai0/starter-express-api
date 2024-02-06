@@ -1,4 +1,4 @@
-const base_url = 'http://localhost:3000/admin/';
+const base_url = 'https://ecommercenodejson.onrender.com/admin/';
 function updateTable(categories) {
    
     const tableBody = $("#categoryTableBody");

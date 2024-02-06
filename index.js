@@ -35,7 +35,7 @@ app.use(
 app.use((req, res, next) => {
   if (req.originalUrl.startsWith('/admin')) {
     res.locals.layout = 'admin/layout';
-    app.locals.base_url = process.env.BASE_URL || 'https://ecommercenodejson.onrender.com/';
+    app.locals.base_url = process.env.BASE_URL || 'https://ecommercenodejson.onrender.com/admin/';
   } else {
     res.locals.layout = 'client/layout';
     const cartData = req.session.cart || [];

@@ -35,7 +35,7 @@ app.use(
 app.use((req, res, next) => {
   if (req.originalUrl.startsWith('/admin')) {
     res.locals.layout = 'admin/layout';
-    app.locals.base_url = process.env.BASE_URL || 'http://localhost:3000/';
+    app.locals.base_url = process.env.BASE_URL || 'https://easy-teal-buffalo-cuff.cyclic.app/';
   } else {
     res.locals.layout = 'client/layout';
     const cartData = req.session.cart || [];
@@ -48,7 +48,7 @@ app.use((req, res, next) => {
     res.locals.total = total;
     res.locals.wishList = wishListData;
     res.locals.itemsWishListCount = itemsWishListCount;
-    app.locals.base_url = process.env.BASE_URL || 'http://localhost:3000/'
+    app.locals.base_url = process.env.BASE_URL || 'https://easy-teal-buffalo-cuff.cyclic.app/'
   
   }
   next();
